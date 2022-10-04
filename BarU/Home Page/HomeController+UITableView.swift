@@ -29,6 +29,7 @@ extension HomeController {
            
         } else {
             let selectedOrg = orgs[indexPath.row]
+    
             //let GUITexting = uIowaBars[indexPath.row]
             print("bar selected: \(selectedOrg)")
             let orgDetailsController = OrgDetailsController()
@@ -161,6 +162,7 @@ extension HomeController {
         // this will return a UITableViewCell
         //when you call the file on the cell, you trigger the didSet property in fileCell.swift file for var file: file?
 //        let file: File
+        print("ehrhehr")
         if (searchController.isActive) {
             tableView.separatorColor = .beerOrange
             let cell = tableView.dequeueReusableCell(withIdentifier: SchoolCell.identifier, for: indexPath) as! SchoolCell
@@ -191,8 +193,10 @@ extension HomeController {
             // END
             return cell
         } else {
-            tableView.separatorColor = .lightGray
+            //tableView.separatorStyle = .none
+            tableView.separatorColor = .clear
             let cell = tableView.dequeueReusableCell(withIdentifier: OrgCell.identifier, for: indexPath) as! OrgCell
+            cell.selectionStyle = .none
             let bar = orgs[indexPath.row]
             //let GUITesting = uIowaBars[indexPath.row]
             

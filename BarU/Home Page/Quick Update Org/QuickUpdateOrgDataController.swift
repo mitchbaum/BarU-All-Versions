@@ -31,7 +31,7 @@ class QuickUpdateOrgDataController: UIViewController, UIImagePickerControllerDel
         navigationItem.title = "Quick Update"
         navigationItem.largeTitleDisplayMode = .never
         
-        view.backgroundColor = UIColor.darkBlue
+        view.backgroundColor = UIColor.matteBlack
         
 
         waitTimeTextfield.inputView = waitTimePicker
@@ -375,13 +375,13 @@ class QuickUpdateOrgDataController: UIViewController, UIImagePickerControllerDel
     // all code to add any layout UI elements
     private func setupUI() {
         // add and position background color in relationship to the view elements on the view controller
-        let silverBackgroundView = UIView()
-        silverBackgroundView.backgroundColor = UIColor.silver
-        silverBackgroundView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(silverBackgroundView)
-        silverBackgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        silverBackgroundView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
-        silverBackgroundView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        let offWhiteBackgroundView = UIView()
+        offWhiteBackgroundView.backgroundColor = UIColor.offWhite
+        offWhiteBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(offWhiteBackgroundView)
+        offWhiteBackgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        offWhiteBackgroundView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        offWhiteBackgroundView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
         //silverBackgroundView.heightAnchor.constraint(equalToConstant: 400).isActive = true
         
         
@@ -506,7 +506,7 @@ class QuickUpdateOrgDataController: UIViewController, UIImagePickerControllerDel
         createButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         createButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
         createButton.topAnchor.constraint(equalTo: atCapacityLabel.bottomAnchor, constant: 25).isActive = true
-        silverBackgroundView.bottomAnchor.constraint(equalTo: createButton.bottomAnchor, constant: 20).isActive = true
+        offWhiteBackgroundView.bottomAnchor.constraint(equalTo: createButton.bottomAnchor, constant: 20).isActive = true
         
         // to fill entire view
         //nameLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true

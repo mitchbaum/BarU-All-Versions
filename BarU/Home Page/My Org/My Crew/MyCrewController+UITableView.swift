@@ -67,8 +67,7 @@ extension MyCrewController {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: CrewCell.identifier, for: indexPath) as! CrewCell
         let crewMember = crew[indexPath.row]
-        // change cell background color
-
+        cell.selectionStyle = .none
         // the cell takes a color with variable from UIColor+theme.swift file, in this case the function UIColor with the variable "someColor" found in that file
         //cell.backgroundColor = UIColor.tealColor
         // add some text to each cell and text color

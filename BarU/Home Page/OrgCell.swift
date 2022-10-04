@@ -11,8 +11,6 @@ class OrgCell: UITableViewCell {
     
     static let identifier = "OrgCell"
     
-
-    
     // bar logo
     let orgImageView: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "pints_icon"))
@@ -128,10 +126,25 @@ class OrgCell: UITableViewCell {
         return label
     }()
     
+    let cardView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .offWhite
+        view.layer.cornerRadius = 15
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         // color of table view cell
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.matteBlack
+        
+        addSubview(cardView)
+        cardView.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
+        cardView.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
+        cardView.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
+        cardView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
+        
         
         // placement of the image in cell
         addSubview(orgImageView)
@@ -203,7 +216,7 @@ class OrgCell: UITableViewCell {
         // placement of timestamp label in cell
         addSubview(updateLabel)
         updateLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
-        updateLabel.topAnchor.constraint(equalTo: waitTimeImageView.bottomAnchor, constant: 10).isActive = true
+        updateLabel.topAnchor.constraint(equalTo: waitTimeImageView.bottomAnchor, constant: 8).isActive = true
         updateLabel.leftAnchor.constraint(equalTo: orgImageView.rightAnchor, constant: 16).isActive = true
         //closedLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
 

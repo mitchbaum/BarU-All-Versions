@@ -81,7 +81,7 @@ class MyOrgController: UIViewController, UIImagePickerControllerDelegate, UIPick
         
         
         
-        view.backgroundColor = UIColor.darkBlue
+        view.backgroundColor = UIColor.matteBlack
         setupUI()
         fetchUserData()
         dismissKeyboardGesture()
@@ -622,7 +622,7 @@ class MyOrgController: UIViewController, UIImagePickerControllerDelegate, UIPick
         //textField.addLine(position: .bottom, color: .lightGray, width: 0.5)
         textField.font = .systemFont(ofSize: 16)
         textField.layer.borderWidth = 1.0;
-        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.layer.borderColor = UIColor.logoRed.cgColor
         textField.layer.cornerRadius = 7;
         textField.overrideUserInterfaceStyle = .light
         textField.isScrollEnabled = false
@@ -653,7 +653,7 @@ class MyOrgController: UIViewController, UIImagePickerControllerDelegate, UIPick
         //textField.addLine(position: .bottom, color: .lightGray, width: 0.5)
         textField.font = .systemFont(ofSize: 16)
         textField.layer.borderWidth = 1.0;
-        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.layer.borderColor = UIColor.logoRed.cgColor
         textField.layer.cornerRadius = 7;
         textField.isScrollEnabled = false
         textField.overrideUserInterfaceStyle = .light
@@ -682,7 +682,7 @@ class MyOrgController: UIViewController, UIImagePickerControllerDelegate, UIPick
         //textField.addLine(position: .bottom, color: .lightGray, width: 0.5)
         textField.font = .systemFont(ofSize: 16)
         textField.layer.borderWidth = 1.0;
-        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.layer.borderColor = UIColor.logoRed.cgColor
         textField.layer.cornerRadius = 7;
         textField.isScrollEnabled = false
         textField.overrideUserInterfaceStyle = .light
@@ -711,7 +711,7 @@ class MyOrgController: UIViewController, UIImagePickerControllerDelegate, UIPick
         //textField.addLine(position: .bottom, color: .lightGray, width: 0.5)
         textField.font = .systemFont(ofSize: 16)
         textField.layer.borderWidth = 1.0;
-        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.layer.borderColor = UIColor.logoRed.cgColor
         textField.layer.cornerRadius = 7;
         textField.isScrollEnabled = false
         textField.overrideUserInterfaceStyle = .light
@@ -740,7 +740,7 @@ class MyOrgController: UIViewController, UIImagePickerControllerDelegate, UIPick
         //textField.addLine(position: .bottom, color: .lightGray, width: 0.5)
         textField.font = .systemFont(ofSize: 16)
         textField.layer.borderWidth = 1.0;
-        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.layer.borderColor = UIColor.logoRed.cgColor
         textField.layer.cornerRadius = 7;
         textField.isScrollEnabled = false
         textField.overrideUserInterfaceStyle = .light
@@ -769,7 +769,7 @@ class MyOrgController: UIViewController, UIImagePickerControllerDelegate, UIPick
         //textField.addLine(position: .bottom, color: .lightGray, width: 0.5)
         textField.font = .systemFont(ofSize: 16)
         textField.layer.borderWidth = 1.0;
-        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.layer.borderColor = UIColor.logoRed.cgColor
         textField.layer.cornerRadius = 7;
         textField.isScrollEnabled = false
         textField.overrideUserInterfaceStyle = .light
@@ -798,7 +798,7 @@ class MyOrgController: UIViewController, UIImagePickerControllerDelegate, UIPick
         //textField.addLine(position: .bottom, color: .lightGray, width: 0.5)
         textField.font = .systemFont(ofSize: 16)
         textField.layer.borderWidth = 1.0;
-        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.layer.borderColor = UIColor.logoRed.cgColor
         textField.layer.cornerRadius = 7;
         textField.isScrollEnabled = false
         textField.overrideUserInterfaceStyle = .light
@@ -829,7 +829,7 @@ class MyOrgController: UIViewController, UIImagePickerControllerDelegate, UIPick
         let textField = UITextView()
         textField.font = .systemFont(ofSize: 16)
         textField.layer.borderWidth = 1.0;
-        textField.layer.borderColor = UIColor.lightGray.cgColor
+        textField.layer.borderColor = UIColor.logoRed.cgColor
         textField.layer.cornerRadius = 7;
         textField.backgroundColor = UIColor.white
         textField.textColor = .black
@@ -856,25 +856,7 @@ class MyOrgController: UIViewController, UIImagePickerControllerDelegate, UIPick
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-//    lazy var contentViewSize = CGSize(width: self.view.frame.width, height: self.view.frame.height + 1240)
-//    // add scroll to view controller
-//    lazy var scrollView : UIScrollView = {
-//        let view = UIScrollView(frame : .zero)
-//        view.frame = self.view.bounds
-//        view.contentInsetAdjustmentBehavior = .never
-//        view.contentSize = contentViewSize
-//        view.backgroundColor = .white
-//        return view
-//    }()
-//    
-//    lazy var containerView : UIView = {
-//        let view = UIView()
-//        view.frame.size = contentViewSize
-//        //view.translatesAutoresizingMaskIntoConstraints = false
-//        view.backgroundColor = .white
-//        return view
-//    }()
+
     
     // add scroll to view controller
     let scrollView : UIScrollView = {
@@ -892,6 +874,14 @@ class MyOrgController: UIViewController, UIImagePickerControllerDelegate, UIPick
         view.translatesAutoresizingMaskIntoConstraints = false
         //view.frame.size = contentViewSize
         view.backgroundColor = .white
+        return view
+    }()
+    
+    let drinkSpecialsBackgroundView : UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.white
+        //view.layer.cornerRadius = 15
         return view
     }()
 
@@ -1042,6 +1032,13 @@ class MyOrgController: UIViewController, UIImagePickerControllerDelegate, UIPick
         //drinkSpecialsLabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
         drinkSpecialsLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
         
+        containerView.addSubview(drinkSpecialsBackgroundView)
+        drinkSpecialsBackgroundView.topAnchor.constraint(equalTo: drinkSpecialsLabel.bottomAnchor).isActive = true
+        drinkSpecialsBackgroundView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        //drinkSpecialsLabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        drinkSpecialsBackgroundView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        
+        
         // add and position deductible label
         view.addSubview(sundayLabel)
         sundayLabel.topAnchor.constraint(equalTo: drinkSpecialsLabel.bottomAnchor, constant: 10).isActive = true
@@ -1143,6 +1140,7 @@ class MyOrgController: UIViewController, UIImagePickerControllerDelegate, UIPick
         saturdayTextField.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 16).isActive = true
         saturdayTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16).isActive = true
         saturdayTextField.topAnchor.constraint(equalTo: saturdayLabel.bottomAnchor, constant: 8).isActive = true
+        drinkSpecialsBackgroundView.bottomAnchor.constraint(equalTo: saturdayTextField.bottomAnchor, constant: 15).isActive = true
         
         // add and position deductible label
         view.addSubview(announcementsLabel)

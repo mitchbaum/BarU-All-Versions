@@ -26,7 +26,7 @@ class OrgDetailsController: UIViewController {
     // equation line
     let line: UILabel = {
         let line = UILabel()
-        line.backgroundColor = UIColor.black
+        line.backgroundColor = UIColor.logoRed
         // enable autolayout
         line.translatesAutoresizingMaskIntoConstraints = false
     
@@ -36,7 +36,7 @@ class OrgDetailsController: UIViewController {
     // equation line
     let line2: UILabel = {
         let line = UILabel()
-        line.backgroundColor = UIColor.black
+        line.backgroundColor = UIColor.logoRed
         // enable autolayout
         line.translatesAutoresizingMaskIntoConstraints = false
     
@@ -46,7 +46,7 @@ class OrgDetailsController: UIViewController {
     // equation line
     let line3: UILabel = {
         let line = UILabel()
-        line.backgroundColor = UIColor.black
+        line.backgroundColor = UIColor.logoRed
         // enable autolayout
         line.translatesAutoresizingMaskIntoConstraints = false
     
@@ -56,7 +56,7 @@ class OrgDetailsController: UIViewController {
     // equation line
     let line4: UILabel = {
         let line = UILabel()
-        line.backgroundColor = UIColor.black
+        line.backgroundColor = UIColor.logoRed
         // enable autolayout
         line.translatesAutoresizingMaskIntoConstraints = false
     
@@ -66,7 +66,7 @@ class OrgDetailsController: UIViewController {
     // equation line
     let line5: UILabel = {
         let line = UILabel()
-        line.backgroundColor = UIColor.black
+        line.backgroundColor = UIColor.logoRed
         // enable autolayout
         line.translatesAutoresizingMaskIntoConstraints = false
     
@@ -76,7 +76,7 @@ class OrgDetailsController: UIViewController {
     // equation line
     let line6: UILabel = {
         let line = UILabel()
-        line.backgroundColor = UIColor.black
+        line.backgroundColor = UIColor.logoRed
         // enable autolayout
         line.translatesAutoresizingMaskIntoConstraints = false
     
@@ -94,7 +94,7 @@ class OrgDetailsController: UIViewController {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 50
-        imageView.layer.borderColor = UIColor.matteBlack.cgColor
+        imageView.layer.borderColor = UIColor.logoRed.cgColor
         imageView.layer.borderWidth = 0.8
         return imageView
         
@@ -108,7 +108,7 @@ class OrgDetailsController: UIViewController {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         
-        label.textColor = .black
+        label.textColor = .white
         // enable autolayout
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -132,6 +132,7 @@ class OrgDetailsController: UIViewController {
         let label = UILabel()
         label.font = UIFont.italicSystemFont(ofSize: 18)
         label.numberOfLines = 0
+        label.textColor = .white
         label.lineBreakMode = .byWordWrapping
         // enable autolayout
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -163,6 +164,10 @@ class OrgDetailsController: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = .white
         label.backgroundColor = .logoRed
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 15
+        label.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner] // Top right corner, bottom right corner respectively
+//        label.roundCorners(corners: [.bottomRight, .topRight], radius: 15)
         //label.padding = UIEdgeInsets(top: 20, left: 32, bottom: 60, right: 80)
         // enable autolayout
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -272,6 +277,9 @@ class OrgDetailsController: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = .white
         label.backgroundColor = .logoRed
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 15
+        label.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner] // Top right corner, bottom right corner respectively
         //label.padding = UIEdgeInsets(top: 20, left: 32, bottom: 60, right: 80)
         // enable autolayout
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -475,6 +483,9 @@ class OrgDetailsController: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = .white
         label.backgroundColor = .logoRed
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 15
+        label.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner, .layerMinXMinYCorner] // Top right corner, bottom right corner respectively
         // enable autolayout
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -500,7 +511,7 @@ class OrgDetailsController: UIViewController {
         //view.contentInsetAdjustmentBehavior = .never
         view.translatesAutoresizingMaskIntoConstraints = false
         //view.contentSize = contentViewSize
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.matteBlack
         return view
     }()
     
@@ -508,16 +519,34 @@ class OrgDetailsController: UIViewController {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         //view.frame.size = contentViewSize
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.matteBlack
         return view
     }()
     
-    let barInfoBackgroundColorView : UIView = {
+    let fastFactsCardView : UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .blue
+        view.backgroundColor = UIColor.offWhite
+        view.layer.cornerRadius = 15
         return view
     }()
+    
+    let drinkSpecialsCardView : UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.offWhite
+        view.layer.cornerRadius = 15
+        return view
+    }()
+    
+    let announcementsCardView : UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.beerOrange
+        view.layer.cornerRadius = 15
+        return view
+    }()
+    
     
     // all code to add any layout UI elements
     private func setupUI() {
@@ -552,6 +581,7 @@ class OrgDetailsController: UIViewController {
         //orgImageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor, constant: -100).isActive = true
         orgImageView.leftAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leftAnchor, constant: 16).isActive = true
         orgImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        
 
         // add and position name label
         containerView.addSubview(orgNameLabel)
@@ -596,8 +626,13 @@ class OrgDetailsController: UIViewController {
         fastFactsLabel.topAnchor.constraint(equalTo: updateLabel.bottomAnchor, constant: 10).isActive = true
         // move label to the right a bit
         fastFactsLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
-        //drinkSpecialsLabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        fastFactsLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        fastFactsLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        //fastFactsLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -20).isActive = true
+        
+        containerView.addSubview(fastFactsCardView)
+        fastFactsCardView.topAnchor.constraint(equalTo: fastFactsLabel.bottomAnchor, constant: 5).isActive = true
+        fastFactsCardView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 5).isActive = true
+        fastFactsCardView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -5).isActive = true
 
 
         // add and position invoice label
@@ -667,14 +702,16 @@ class OrgDetailsController: UIViewController {
         poppinMessage.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -16).isActive = true
         poppinMessage.bottomAnchor.constraint(equalTo: poppinLabel.bottomAnchor).isActive = true
         poppinMessage.topAnchor.constraint(equalTo: poppinLabel.topAnchor).isActive = true
+        
+        fastFactsCardView.bottomAnchor.constraint(equalTo: poppinMessage.bottomAnchor, constant: 5).isActive = true
 
         // add and position deductible label
         containerView.addSubview(drinkSpecialsLabel)
-        drinkSpecialsLabel.topAnchor.constraint(equalTo: poppinLabel.bottomAnchor, constant: 10).isActive = true
+        drinkSpecialsLabel.topAnchor.constraint(equalTo: poppinLabel.bottomAnchor, constant: 15).isActive = true
         // move label to the right a bit
         drinkSpecialsLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
-        //drinkSpecialsLabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        drinkSpecialsLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        drinkSpecialsLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        //drinkSpecialsLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
         
 //        containerView.addSubview(redBackgroundColor)
 //        redBackgroundColor.topAnchor.constraint(equalTo: drinkSpecialsLabel.topAnchor).isActive = true
@@ -682,6 +719,10 @@ class OrgDetailsController: UIViewController {
 //        redBackgroundColor.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
 //        redBackgroundColor.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
         
+        containerView.addSubview(drinkSpecialsCardView)
+        drinkSpecialsCardView.topAnchor.constraint(equalTo: drinkSpecialsLabel.bottomAnchor, constant: 5).isActive = true
+        drinkSpecialsCardView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 5).isActive = true
+        drinkSpecialsCardView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -5).isActive = true
 
         // add and position deductible label
         containerView.addSubview(sundayLabel)
@@ -826,14 +867,22 @@ class OrgDetailsController: UIViewController {
         saturdayMessage.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -16).isActive = true
         //saturdayMessage.bottomAnchor.constraint(equalTo: saturdayLabel.bottomAnchor).isActive = true
         saturdayMessage.topAnchor.constraint(equalTo: saturdayLabel.topAnchor).isActive = true
+        
+        drinkSpecialsCardView.bottomAnchor.constraint(equalTo: saturdayMessage.bottomAnchor, constant: 5).isActive = true
 
         // add and position deductible label
         containerView.addSubview(announcementsLabel)
-        announcementsLabel.topAnchor.constraint(equalTo: saturdayMessage.bottomAnchor, constant: 10).isActive = true
+        announcementsLabel.topAnchor.constraint(equalTo: saturdayMessage.bottomAnchor, constant: 15).isActive = true
         // move label to the right a bit
         announcementsLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
-        //announcementsLabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        announcementsLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        announcementsLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        //announcementsLabel.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        
+        containerView.addSubview(announcementsCardView)
+        announcementsCardView.topAnchor.constraint(equalTo: announcementsLabel.bottomAnchor, constant: 5).isActive = true
+        announcementsCardView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 5).isActive = true
+        announcementsCardView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -5).isActive = true
+        
 
         // add poppin switch
         containerView.addSubview(announcementsMessage)
@@ -844,6 +893,7 @@ class OrgDetailsController: UIViewController {
         //announcementsTextField.heightAnchor.constraint(equalToConstant: 100).isActive = true
         announcementsMessage.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -16.0).isActive = true
         //containerView.bottomAnchor.constraint(equalTo: announcementsMessage.bottomAnchor, constant: -16).isActive = true
+        announcementsCardView.bottomAnchor.constraint(equalTo: announcementsMessage.bottomAnchor, constant: 5).isActive = true
 ////
         
         

@@ -17,6 +17,7 @@ class HomeController: UITableViewController, UISearchBarDelegate, UISearchResult
     //create variable to reference the firebase data so we can read, wirte and update it
     let db = Firestore.firestore()
     
+    
     var orgs = [Org]()
     var orgCollectionReference: CollectionReference!
     
@@ -58,14 +59,8 @@ class HomeController: UITableViewController, UISearchBarDelegate, UISearchResult
         // if user is in dark mode, tableView cell will remain in light mode when user selects
         tableView.overrideUserInterfaceStyle = .light
         
-
         
         
-
-        
-        
-        
-
         
 
 //        let attributes = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Light", size: 7)!]
@@ -174,10 +169,12 @@ class HomeController: UITableViewController, UISearchBarDelegate, UISearchResult
                 // SuperAdmin access
                 if email == "mitch.baumgartner@yahoo.com" {
                     print("is super admin.")
+                    self.barButtonItemWidth = 180
                     self.setUpNavBar()
                     let signOut = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(self.handleSignOut))
-                    let addSchool = UIBarButtonItem(title: "Add School", style: .plain, target: self, action: #selector(self.handleCreateSchool))
-                    self.navigationItem.rightBarButtonItems = [addSchool, signOut]
+                    let code = UIBarButtonItem(title: "Code", style: .plain, target: self, action: #selector(self.handleFetchCode))
+                    let addSchool = UIBarButtonItem(image: UIImage(named: "update"), style: .plain, target: self, action: #selector(self.handleCreateSchool))
+                    self.navigationItem.rightBarButtonItems = [addSchool, code, signOut]
                 } else if isAdmin == true {
                     // organization owner access
                     print("\(uid): is an admin")
@@ -228,6 +225,7 @@ class HomeController: UITableViewController, UISearchBarDelegate, UISearchResult
         
         
     }
+    
     
     
     // this function will fetch all data in database. Do not activate until GUI is finished.
@@ -364,6 +362,14 @@ class HomeController: UITableViewController, UISearchBarDelegate, UISearchResult
         
     }
     
+    @objc func handleFetchCode() {
+        print("Fetching org code")
+        let myOrgCodeController = MyOrgCodeController()
+        let navController = CustomNavigationController(rootViewController: myOrgCodeController)
+        present(navController, animated: true, completion: nil)
+    }
+    
+    
     @objc private func handleCreateSchool() {
         print("Creating a school")
         let createSchoolController = CreateSchoolController()
@@ -426,6 +432,7 @@ class HomeController: UITableViewController, UISearchBarDelegate, UISearchResult
         schools.sort(by: {$0.name! < $1.name!})
         tableView.reloadData()
     }
+
     
 
 
