@@ -40,7 +40,7 @@ Download on the app store here: https://apps.apple.com/us/app/the-baru/id1580784
 ### Login/Create Crew Member 
 Enter your login credentials if you already have an account 
 
-<img src="https://user-images.githubusercontent.com/71997310/195455996-4cb76ad2-ac07-4f69-be8f-89df3ffeb303.PNG" width="200"/>
+<img src="https://user-images.githubusercontent.com/71997310/195457947-b2730cb3-4dc5-41d2-a219-e5db620f22c5.PNG" width="200"/>
 
 Create your crew member account with a registration code if you are a new crew member
 
